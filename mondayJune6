@@ -1,0 +1,171 @@
+<!Doctype <!DOCTYPE html>
+<html>
+<head>
+	<title>mongoose /mongo monday practice</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel=stylesheet href="monday.june6.css">
+</head>
+<body>
+<div id = "container">
+<div class = "well">
+<div class="datagrid"><table>
+<thead><tr><th>Name</th><th>Verb</th><th>Url</th><th>Purpose</th></tr></thead>
+<tbody><tr><td>INDEX</td><td>GET</td><td>/books</td><td>display a list of books</td></tr>
+<tr class="alt"><td>SHOW</td><td>GET</td><td>/books/:id</td><td>look up a book by id and disiplay it</td></tr>
+<tr><td>NEW</td><td>GET</td><td>/books/new</td><td>display a form to create a book</td></tr>
+<tr class="alt"><td>CREATE  </td><td>POST</td><td>/books</td><td>create a new book and then redirect</td></tr>
+<tr><td>EDIT</td><td>GET</td><td>/books/:id/edit  </td><td>a form to edit a specific book</td></tr>
+<tr class="alt"><td>UPDATE</td><td>PUT</td><td>/books/:id</td><td>update specific book with data from edit</td></tr>
+<tr><td>Destroy</td><td>DELETE  </td><td>/books/:id</td><td>look up book and delete it</td></tr>
+<!-- <tr class="alt"><td>data</td><td>data</td><td>data</td><td>data</td></tr>
+</tbody>
+</table></div> -->
+</tbody>
+</table>
+</div>
+</div>
+
+<hr/>
+<div class = "well">
+<div class="datagrid"><table>
+<hr/>
+
+<thead><tr><th>Name</th><th>Verb</th><th>Url</th><th>Purpose</th></tr></thead>
+<tbody><tr><td>INDEX</td><td>GET</td><td>/photos</td><td>display a list of photos</td></tr>
+<tr class="alt"><td>SHOW</td><td>GET</td><td>/photos/:id</td><td>look up a photo by id and disiplay it</td></tr>
+<tr><td>NEW</td><td>GET</td><td>/photos/new</td><td>display a form to create a photo</td></tr>
+<tr class="alt"><td>CREATE  </td><td>POST</td><td>/photos</td><td>create new photos and then redirect</td></tr>
+<tr><td>EDIT</td><td>GET</td><td>/photo/:id/edit  </td><td>a form to edit a specific photo</td></tr>
+<tr class="alt"><td>UPDATE</td><td>PUT</td><td>/photos/:id</td><td>update specific photo with data from edit</td></tr>
+<tr><td>Destroy</td><td>DELETE  </td><td>/photos/:id</td><td>look up photo and delete it</td></tr>
+
+
+</tbody>
+</table>
+</div>
+<hr/><hr>
+</div>
+<div class = "well">
+<h1> Intro to Databases and MongoDB</h1>
+<h2> what is a database?</h2>
+
+<p>set of data held in a computer , accessible in various ways. can be relational or non relational. sql is relational..tables....non relational documents</p>
+<h2>Navigating in Mongo</h2>
+<p>
+<ol><li>anywhere in the terminal start a mongo server by using mongod</li></ol>
+<h2>Crud In Mongo</h2>
+<h3>
+<ol>
+<li>C- create</li>
+<li>R-read (any kind of fetched finding)</li>
+<li>U-Update the record</li>
+<li>D-delete the record</li>
+</ol>
+</h3>
+<h2>Creating Records</h2>
+<h4>to create records</h4>
+<code>db.users.insert({name: "Erika",
+						work: "nursing"
+						Hobbies: ["sailing","theater","learning to code"],
+						DOB : new Date (1976, 07,27)	
+						});
+		db.users.insert({name: 'John',
+    					work: ['fedEx', 'Freight']
+    					daughtersAge: '7'
+    	</code>				});
+    	<p>this is what putting in first Name and last name came up as when I querried the db</p>
+	<code>	
+	erikas-Air-2(mongod-3.0.2) test> db.users.find()
+{
+  "_id": ObjectId("557deb3a0b3ffdf116707ab1"),
+  "firstName": "Erika",
+  "lastName": "Harvey"
+}
+Fetched 1 record(s) in 5ms
+erikas-Air-2(mongod-3.0.2) test>
+</code>
+<p>and here is where i  queried and deleted the name erika</p>
+<code>
+erikas-Air-2(mongod-3.0.2) test> db.users.remove({name:"Erika"})
+Removed 0 record(s) in 2ms
+WriteResult({
+  "nRemoved": 0
+})
+</code>
+<hr>
+</div>
+<div class = "well">
+<h1>HOMEWORK</h1>
+<DL>
+<LH><h1>Part1 Conceptual Review</h1></LH>
+<DT>Database<dd>a structured storage space for data.
+<DT>Collection<dd>a group of data that you need to hold in sorage until someone requrires it
+<DT>Document<dd>The item of data that you store, its a json style data structure for storage
+<DT>Cursor<dd>it points to where in the document you are searching
+<DT>Field<dd>A name value pair in a document. A doucment has zero or more fields, they are like columns in a relational database.
+<DT>CRUD<dd>Create REad Update Delete
+<DT>Relational Database<dd>type of database taht is structured with tables and columns/rows and relates to a unique id on another table (key).
+<DT>Non-Relational Database<dd>its not done in a table like structure relying on the key value pairing.
+<DT>Cap Theorem<dd>it is impossilbe for a distrubuted computer system to simultaneously provide all three of the following things. Consistency, Avalability, partition tolerance.
+<DT>Schema<dd>mongo is said to be shema-less, but it can be said that its schema is the object space of the object whose relations the mondo database represents. schemas are the picture of what a certain database is .
+</DL>
+</div>
+<div class = "well">
+<DL>
+<LH><h1>Part2: Conceptual Review</h1></LH>
+<DT>Do Mongo DB 's have schemas <dd>mongo is said to be shema-less, but it can be said that its schema is the object space of the object whose relations the mondo database represents.
+<DT>What are typical uses for MOngoDB<dd>typical uses for MongoDb include: 
+    Large number of objects to store 
+    Sharding lets you split objects across multiple servers High write / read throughput and data distribution Sharding 
+    Replication lets you scale read and write traffic across multiple servers, multiple tenants, or data centers 
+    Low latency access Memory mapped storage engine caches documents in RAM, enabling in-memory operations. 
+    Data locality of documents significantly improves latency over join- based approaches 
+    Variable data in objects Dynamic schema and JSON data model enable flexible data storage without sparse tables or complex joins, 
+    and provide for an intuitive query language Cloud based deployment Sharding and replication let you work around
+        hardware limitations in the cloud.
+<DT>what is Mongoose<dd>Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment
+<DT>What is a Mongoose Model<dd>A Model is an object that gives you easy access to a named collection, 
+  allowing you to query the collection and use the Schema to validate any
+  documents you save to that collection. It is created by combining a Schema, a
+  Connection, and a collection name.
+
+</DL>
+</div>
+<div class = "well">
+<DL>
+<LH><h1>Problem Set 3</h1></LH>
+<DT>start mongo<dd>mongo d
+<DT>enter mongo shell<dd>mongo
+<DT>SHOW ALL DATABASES <dd> show dbs
+<dt>use the library database<dd>use library
+<dt>Show all the collections inside of library<dd> show collections
+<dt>using insert method add an author with the name of john and age of 37<dd>db.library.insert( {type: 'author', name: "john", age: 37 })
+<dt>using insert add another autho of jane age 42 and property of books which is an empty array<dd>db.library.insert( { type:'author', name: "Jane", age: 42, books: [] } )
+<dt>save method, find an autho with an age greater than or equal to 42 and change the age to 33, then save the autho<dd>var olderAge = db.library.find({type:"author", age: {$gt:41}}) olderAge.age = 33 db.labrary.save();
+<dt>find all of the authors<dd>db.library.find{type: "author"}
+<dt>find an author with the name of John<dd> db.library.find({type: "author" name: "john"})
+<dt>find all of the authors but limit the search to one<dd> db.library.find({type:"author"}).limit(1)
+<dt>find an author whose name is not equal to john using the $ne operator<dd>db.library.find({type: "author", name:{$ne: "john"}})
+<dt>Update an author who has a name of john and change his nae to james without using the set method<dd>db.library.find({name: "john"}, {name: "James"})
+<dt>Update an author named "james" and using the set operator set his name back to john and age 37<dd>db.library.update.({name:"James"},{set:{name:'John', age: 37}})
+<dt> delete an author of the name John
+<dd>db.library.remove({author: "John"},1)
+<dt>delete all authors<dd>db.library.remove({})
+<dt>Create an author whose name is Johna nd has na empty array of books
+<dd>db.library.insert({type: "author", name: "John", books: []})
+<dt> Update John and using the $push operator add the string "of Mice and Men" into the books array
+<dd>var data = db.library.findOne({name: "John"}) db.library.update(data, {$push: {book: "of Mice and Men"}})
+<dd> Update John and using the push and each operators add the strings "Grapes of WRath:, "the Pearl" "East of Eden" "50 shades of grey"<dd> db.library.update(data, {$push:{book: {$each:["Grapes of Wrath", "The Pearl", "East of Eden", "50 Shades of Grey"
+<dt>using $pull operator, remove 50 shades form array<dd>db.libraryupdate(data, {$pull{book: "50 Shades of Grey"}})
+<dt>using the $in operatorupdate an author who has a book "of mice and men " and h"the pearl"<dd>var found1 = db.library.findOne({book:{$in ["of Mice and Men", "The Pearl"]}})<br>found1.name = "John Steinbeck"</DL>
+</div>
+</div>
+</body>
+</html>
